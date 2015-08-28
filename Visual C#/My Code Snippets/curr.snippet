@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Singleton Current Property</Title>
+			<Shortcut>curr</Shortcut>
+			<Description>Create a Singleton Current Property</Description>
+			<Author>Jordan S. Munroe</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>class</ID>
+					<ToolTip>Singleton Class Name</ToolTip>
+                    <Function>ClassName()</Function>
+					<Default>MyClass</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+                <![CDATA[private static $class$ _current = null;
+
+        /// <summary>
+        /// Current (readonly) - The current $class$ instance.
+        /// </summary>
+        public static $class$ Current
+        {
+            get
+            {
+                if (_current == null)
+                    _current = new $class$();
+
+                return _current;
+            }
+        }
+$end$]]>
+
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

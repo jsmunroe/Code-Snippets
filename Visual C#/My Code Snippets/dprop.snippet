@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Dependency Property.</Title>
+            <Shortcut>dprop</Shortcut>
+            <Description>Code snippet for Dependency Property.</Description>
+            <Author>Jordan S. Munroe</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property type</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>container</ID>
+                    <ToolTip>Containing dependency object.</ToolTip>
+                    <Function>ClassName()</Function>
+                    <Default>MyDependencyObject</Default>
+                </Literal>
+                <Literal>
+                    <ID>comment</ID>
+                    <ToolTip>Comment text.</ToolTip>
+                    <Default>TODO: Add summary for this property.</Default>
+                </Literal>
+                <Literal>
+                    <ID>framework</ID>
+                    <ToolTip>Framework</ToolTip>
+                    <Default>Framework</Default>
+                </Literal>
+                <Literal>
+                    <ID>default</ID>
+                    <ToolTip>Default value.</ToolTip>
+                    <Default>null</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[public static readonly DependencyProperty $property$Property = DependencyProperty.Register("$property$", typeof($type$), typeof($container$), new $framework$PropertyMetadata($default$));
+
+        /// <summary>
+        /// $property$ (readonly) - $comment$
+        /// </summary>
+		public $type$ $property$
+		{
+            get { return ($type$)GetValue($property$Property); }
+            set { SetValue($property$Property, value); }
+		}
+$end$]]>
+
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

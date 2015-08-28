@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Readonly Calculated Property.</Title>
+			<Shortcut>calprop</Shortcut>
+			<Description>Code snippet for Readonly Calculated Property.</Description>
+            <Author>Jordan S. Munroe</Author>
+            <SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property type</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+					<ID>property</ID>
+					<ToolTip>Property name</ToolTip>
+					<Default>MyProperty</Default>
+				</Literal>
+				<Literal>
+					<ID>calculation</ID>
+					<ToolTip>The variable backing this property</ToolTip>
+					<Default>null</Default>
+				</Literal>
+                <Literal>
+                    <ID>comment</ID>
+                    <ToolTip>Comment text.</ToolTip>
+                    <Default>TODO: Add summary for this property.</Default>
+                </Literal>
+            </Declarations>
+			<Code Language="csharp"><![CDATA[/// <summary>
+        /// $comment$
+        /// </summary>
+		public $type$ $property$
+		{
+			get { return $calculation$; }
+		}
+$end$]]>
+
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

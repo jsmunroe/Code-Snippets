@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Change Handled Dependency Property.</Title>
+            <Shortcut>chdprop</Shortcut>
+            <Description>Code snippet for Dependency Property that handles change event.</Description>
+            <Author>Jordan S. Munroe</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property type</ToolTip>
+                    <Default>int</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>container</ID>
+                    <ToolTip>Containing dependency object.</ToolTip>
+                    <Function>ClassName()</Function>
+                    <Default>MyDependencyObject</Default>
+                </Literal>
+                <Literal>
+                    <ID>comment</ID>
+                    <ToolTip>Comment text.</ToolTip>
+                    <Default>TODO: Add summary for this property.</Default>
+                </Literal>
+                <Literal>
+                    <ID>framework</ID>
+                    <ToolTip>Framework</ToolTip>
+                    <Default>Framework</Default>
+                </Literal>
+                <Literal>
+                    <ID>default</ID>
+                    <ToolTip>Default value.</ToolTip>
+                    <Default>null</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+    <![CDATA[public static readonly DependencyProperty $property$Property = DependencyProperty.Register("$property$", typeof($type$), typeof($container$), new $framework$PropertyMetadata($default$, On$property$PropertyChanged));
+
+        /// <summary>
+        /// $property$ (readonly) - $comment$
+        /// </summary>
+        public $type$ $property$
+        {
+            get { return ($type$)GetValue($property$Property); }
+            set { SetValue($property$Property, value); }
+        }
+
+        /// <summary>
+        /// When the $property$ property is changed.
+        /// </summary>
+        private void On$property$Changed($type$ a_newValue)
+        {
+
+        }
+
+        /// <summary>
+        /// When the $property$Property dependency property is changed.
+        /// </summary>
+        private static void On$property$PropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            if (obj is $container$)
+            {
+                (obj as $container$).On$property$Changed(e.NewValue as $type$);
+            }        
+        }
+$end$]]>
+
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

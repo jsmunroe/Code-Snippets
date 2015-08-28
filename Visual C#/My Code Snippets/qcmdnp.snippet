@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Command Property.</Title>
+            <Shortcut>qcmdnp</Shortcut>
+            <Description>Code snippet for Command Property that uses the ActionCommand (without parameters).</Description>
+            <Author>Jordan S. Munroe</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>command_type</ID>
+                    <ToolTip>Type of the command.</ToolTip>
+                    <Default>ActionCommand</Default>
+                </Literal>
+                <Literal>
+                    <ID>ucase_command</ID>
+                    <ToolTip>Upper case command name</ToolTip>
+                    <Default>MyNew</Default>
+                </Literal>
+                <Literal>
+                    <ID>container</ID>
+                    <ToolTip>Containing dependency object.</ToolTip>
+                    <Default>MyDependencyObject.</Default>
+                </Literal>
+                <Literal>
+                    <ID>comment</ID>
+                    <ToolTip>Comment text.</ToolTip>
+                    <Default>TODO: Add summary for this command.</Default>
+                </Literal>
+                <Literal>
+                    <ID>default</ID>
+                    <ToolTip>Default value.</ToolTip>
+                    <Default>null</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[public $command_type$ $ucase_command$Command { get; private set; }
+
+            $ucase_command$Command = new $command_type$(On$ucase_command$CommandExecuted, CanExecute$ucase_command$Command);
+
+        /// <summary>
+        /// Get whether the $ucase_command$ command can be executed.
+        /// </summary>
+        /// <returns>True if the command can execute.</returns>
+        private bool CanExecute$ucase_command$Command()
+        {
+            // TODO: Add logic to decide if the command can execute or not.  Return true if it can execute.
+            return true;
+        }
+
+        /// <summary>
+        /// When the $ucase_command$ command is executed.
+        /// </summary>
+        private void On$ucase_command$CommandExecuted()
+        {
+            // TODO: Add logic to execute the command.
+        }
+
+$end$]]>
+
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
