@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Unit Testing - Test Method</Title>
+      <Shortcut>atest</Shortcut>
+      <Description></Description>
+      <Author>Jordan S. Munroe</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Method name</ToolTip>
+          <Default>TestMethod</Default>
+        </Literal>
+        <Literal>
+          <ID>content</ID>
+          <ToolTip>Default content.</ToolTip>
+          <Default>Assert.Inconclusive("Not implemented!");</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+        [TestMethod]
+        public async Task $name$()
+        {
+          $content$
+        }
+        $end$
+      ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
