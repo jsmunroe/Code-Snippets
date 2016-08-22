@@ -3,8 +3,8 @@
 	<CodeSnippet Format="1.0.0">
 		<Header>
 			<Title>Null Argument Exception</Title>
-			<Shortcut>nulla</Shortcut>
-            <Description>Code snippet for Null Argument Exception</Description>
+			<Shortcut>enuma</Shortcut>
+            <Description>Code snippet for Enum Out-of-Range Exception</Description>
             <Author>Jordan S. Munroe</Author>
             <SnippetTypes>
 				<SnippetType>Expansion</SnippetType>
@@ -17,15 +17,20 @@
 					<ToolTip>Argument name.</ToolTip>
 					<Default>arg_name</Default>
 				</Literal>
-			</Declarations>
+        <Literal>
+          <ID>type_name</ID>
+          <ToolTip>Type of enum.</ToolTip>
+          <Default>type_name</Default>
+        </Literal>
+      </Declarations>
 			<Code Language="csharp">
             <![CDATA[            #region Argument Validation
 
-            if ($arg_name$ == null)
+            if (!Enum.IsDefined(typeof($type_name$), $arg_name$))
             {
-                throw new ArgumentNullException("$arg_name$");
+                throw new ArgumentOutOfRangeException("$arg_name$");
             }
-        /// <exception cref="ArgumentNullException">Thrown if <paramref name="$arg_name$"/> is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="$arg_name$"/> is not a defined value of "$type_name$".</exception>
 
             #endregion
             $end$]]>
